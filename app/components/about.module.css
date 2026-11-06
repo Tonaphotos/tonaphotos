@@ -1,0 +1,159 @@
+.about {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 1.2rem;
+  height: 100vh;
+  height: 100svh;
+  padding: 5.6rem var(--margin) 3.4rem;
+  overflow: hidden;
+}
+
+.portrait {
+  justify-self: center;
+  width: auto;
+  height: auto;
+  max-width: 64vw;
+  max-height: 25vh;
+  max-height: 25svh;
+  animation: arrive 1.3s 0.2s var(--ease) both;
+}
+
+.text {
+  display: grid;
+  align-content: start;
+  gap: 0.6rem;
+  max-width: 38rem;
+}
+
+.lead {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: min(1.05rem, 2.3vh);
+  font-size: min(1.05rem, 2.3svh);
+  font-weight: 400;
+  line-height: 1.2;
+  text-wrap: pretty;
+}
+
+.body {
+  margin: 0;
+  font-size: min(0.72rem, 1.6vh);
+  font-size: min(0.72rem, 1.6svh);
+  line-height: 1.45;
+}
+
+.body a {
+  text-decoration-line: underline;
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3rem 1.4rem;
+  margin-top: 0.3rem;
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.contact a {
+  text-decoration-line: none;
+}
+
+.contact a:hover {
+  text-decoration-line: underline;
+  text-underline-offset: 0.3em;
+}
+
+.email {
+  flex-basis: 100%;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+@keyframes arrive {
+  from {
+    opacity: 0;
+    translate: 0 1rem;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@media (min-width: 900px), (orientation: landscape) and (min-width: 640px) {
+  .about {
+    grid-template-columns: auto minmax(0, 40rem);
+    justify-content: center;
+    align-items: center;
+    gap: 6vw;
+    height: 100vh;
+    height: 100svh;
+    padding: 5rem 6vw 4.5rem;
+    overflow: hidden;
+  }
+
+  .portrait {
+    max-width: 36vw;
+    max-height: calc(100vh - 10rem);
+    max-height: calc(100svh - 10rem);
+  }
+
+  .text {
+    align-content: center;
+    gap: min(1.1rem, 1.8vh);
+    gap: min(1.1rem, 1.8svh);
+  }
+
+  .contact {
+    margin-top: 0.8rem;
+  }
+
+  .lead {
+    font-size: clamp(1.3rem, min(2vw, 3.3vh), 2.1rem);
+    font-size: clamp(1.3rem, min(2vw, 3.3svh), 2.1rem);
+  }
+
+  .body {
+    font-size: clamp(0.8125rem, min(0.95vw, 1.75vh), 0.9375rem);
+    font-size: clamp(0.8125rem, min(0.95vw, 1.75svh), 0.9375rem);
+  }
+
+  .email {
+    font-size: clamp(1.4rem, min(2.2vw, 3.6vh), 2.2rem);
+    font-size: clamp(1.4rem, min(2.2vw, 3.6svh), 2.2rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portrait {
+    animation: none;
+  }
+}
+
+@media (max-height: 640px) {
+  .about {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow: visible;
+    padding-bottom: 4.5rem;
+  }
+
+  .portrait {
+    max-height: calc(100vh - 9rem);
+    max-height: calc(100svh - 9rem);
+  }
+
+  .lead {
+    font-size: 1.05rem;
+  }
+
+  .body {
+    font-size: 0.75rem;
+  }
+}

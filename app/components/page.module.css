@@ -1,0 +1,110 @@
+.filmTitle {
+  margin: 0;
+  padding: 9rem var(--margin) 0;
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 8vw, 6rem);
+  font-weight: 400;
+  line-height: 0.95;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.details {
+  display: grid;
+  gap: 4.5rem;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 22vw var(--margin) 0;
+}
+
+.statement {
+  display: grid;
+  gap: 2rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.statement p {
+  margin: 0 0 1em;
+}
+
+.notes {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.notes p {
+  margin: 0 0 0.15em;
+}
+
+.notes a {
+  text-decoration-line: underline;
+}
+
+.film,
+.portraitFilm {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 0;
+  background: var(--ink);
+}
+
+.portraitFilm {
+  justify-self: center;
+  max-width: min(100%, 24rem);
+}
+
+.next {
+  display: grid;
+  justify-items: center;
+  gap: 2rem;
+  padding: 26vw var(--margin) 18vw;
+  text-decoration-line: none;
+  text-align: center;
+}
+
+.nextFrame {
+  display: block;
+}
+
+.next img {
+  display: block;
+  width: min(52vw, 30vh);
+  width: min(52vw, 30svh);
+  height: auto;
+}
+
+.nextTitle {
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 8vw, 6rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.next:hover .nextTitle {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.12em;
+}
+
+@media (min-width: 900px), (orientation: landscape) and (min-width: 640px) {
+  .details {
+    padding-top: 12vw;
+  }
+
+  .statement {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .next {
+    padding: 14vw var(--margin) 10vw;
+  }
+
+  .next img {
+    width: min(18vw, 36vh);
+    width: min(18vw, 36svh);
+  }
+}
