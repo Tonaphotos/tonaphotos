@@ -1,6 +1,6 @@
 import type { Photo } from "./work";
 
-export const paypalAccount: string | null = null;
+export const paypalAccount: string | null = "tona@tonaphotos.com";
 
 export type Product = {
   slug: string;
