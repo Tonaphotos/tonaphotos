@@ -83,7 +83,7 @@ export function Product({ product }: { product: Item }) {
             <input type="hidden" name="no_note" value="1" />
             <Quantity max={product.maxQuantity} value={quantity} onChange={setQuantity} named />
             <button type="submit" className={styles.pay}>
-              Buy with PayPal · {total}
+              Buy · {total}
             </button>
           </form>
         ) : (
