@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Product } from "../components/Product";
 import { products } from "../store";
 
-export const metadata: Metadata = { title: "Store | Tóna Fritsdóttir" };
+export const metadata: Metadata = { title: "Store" };
 
 export default function Store() {
   return (

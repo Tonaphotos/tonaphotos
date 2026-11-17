@@ -1,10 +1,6 @@
-import { Wall } from "./components/Wall";
+import { Spreads } from "./components/Spreads";
 import { inCollection } from "./work";
 
 export default function Home() {
-  return (
-    <main>
-      <Wall heading="Tóna Fritsdóttir" fit={9.38} series={inCollection("portfolio")} />
-    </main>
-  );
+  return <Spreads series={inCollection("portfolio")} label="Portfolio" />;
 }

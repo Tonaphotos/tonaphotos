@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Sequence } from "../../components/Sequence";
+import { Viewer } from "../../components/Viewer";
 import styles from "../../components/page.module.css";
 import { findSeries, neighbours, photoSrc, photoSrcSet, seriesHref, work, type Video } from "../../work";
 
@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: PageProps<"/work/[slug]">): P
   const series = findSeries((await params).slug);
   if (!series) return {};
   return {
-    title: `${series.title} | Tóna Fritsdóttir`,
+    title: series.title,
     openGraph: { images: [{ url: photoSrc(series.cover, 1600), width: series.cover.width, height: series.cover.height }] },
   };
 }
@@ -36,7 +36,7 @@ export default async function SeriesPage({ params }: PageProps<"/work/[slug]">) 
     <>
       <main>
         {series.images.length > 0 ? (
-          <Sequence title={series.title} photos={series.images} />
+          <Viewer title={series.title} photos={series.images} />
         ) : (
           <h1 className={styles.filmTitle}>{series.title}</h1>
         )}

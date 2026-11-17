@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Hanken_Grotesk, Libre_Caslon_Display } from "next/font/google";
-import { Frame } from "./components/Frame";
+import { Nav } from "./components/Nav";
 import { Smooth } from "./components/Smooth";
 import { site } from "./content";
 import "./globals.css";
@@ -21,13 +21,13 @@ const description =
 
 export const metadata: Metadata = {
   metadataBase: new URL(site),
-  title: "Tona Photos | Tóna Fritsdóttir",
+  title: { default: "Tona", template: "%s | Tona" },
   description,
   openGraph: {
-    title: "Tona Photos | Tóna Fritsdóttir",
+    title: "Tona",
     description,
     url: site,
-    siteName: "Tona Photos",
+    siteName: "Tona",
     images: [{ url: "/images/work/enzomnia/01-1600.jpg", width: 1600, height: 2399 }],
     type: "website",
   },
@@ -43,7 +43,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" className={`${caslon.variable} ${hanken.variable}`}>
       <body>
         <Smooth />
-        <Frame />
+        <Nav />
         {children}
       </body>
     </html>

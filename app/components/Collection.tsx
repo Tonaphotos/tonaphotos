@@ -1,14 +1,8 @@
 import { inCollection, type Collection as Name } from "../work";
-import { Wall } from "./Wall";
-
-const fits = { featured: 5.021, commercial: 6.612 };
+import { Spreads } from "./Spreads";
 
 type CollectionProps = { name: Exclude<Name, "portfolio">; title: string };
 
 export function Collection({ name, title }: CollectionProps) {
-  return (
-    <main>
-      <Wall heading={title} fit={fits[name]} series={inCollection(name)} />
-    </main>
-  );
+  return <Spreads series={inCollection(name)} label={title} />;
 }

@@ -66,7 +66,8 @@
   ],
   "notes": [],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": 0
  },
  {
   "slug": "in-the-quiet",
@@ -95,7 +96,8 @@
   ],
   "notes": [],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": 0
  },
  {
   "slug": "mob",
@@ -134,7 +136,8 @@
   ],
   "notes": [],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": 1
  },
  {
   "slug": "vanguard-vol-51",
@@ -188,7 +191,8 @@
   ],
   "notes": [],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": -1
  },
  {
   "slug": "nicoleta",
@@ -212,7 +216,8 @@
   ],
   "notes": [],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": 0
  },
  {
   "slug": "eva-marie",
@@ -241,7 +246,8 @@
   ],
   "notes": [],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": 0
  },
  {
   "slug": "feed-me-dreams",
@@ -275,7 +281,8 @@
   ],
   "notes": [],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": 0
  },
  {
   "slug": "tomyes",
@@ -334,7 +341,8 @@
   ],
   "notes": [],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": 4
  },
  {
   "slug": "still-life",
@@ -373,7 +381,8 @@
   ],
   "notes": [],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": 3
  },
  {
   "slug": "etnia-house-of-arts",
@@ -404,7 +413,8 @@
    ]
   ],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": 0
  },
  {
   "slug": "enzomnia",
@@ -438,7 +448,8 @@
   ],
   "notes": [],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": 0
  },
  {
   "slug": "livandi-steinar",
@@ -640,7 +651,8 @@
      "Something you search for, even when you don’t know what you’re looking for."
     ]
    }
-  ]
+  ],
+  "coverIndex": 0
  },
  {
   "slug": "pfw",
@@ -764,7 +776,8 @@
   ],
   "notes": [],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": 0
  },
  {
   "slug": "jeff",
@@ -833,7 +846,8 @@
   ],
   "notes": [],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": 0
  },
  {
   "slug": "dxi",
@@ -857,7 +871,8 @@
   ],
   "notes": [],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": 0
  },
  {
   "slug": "tessa",
@@ -901,7 +916,8 @@
   ],
   "notes": [],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": 0
  },
  {
   "slug": "masami",
@@ -965,7 +981,8 @@
   ],
   "notes": [],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": 2
  },
  {
   "slug": "second-skin",
@@ -999,7 +1016,8 @@
   ],
   "notes": [],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": 0
  },
  {
   "slug": "oli",
@@ -1043,7 +1061,8 @@
   ],
   "notes": [],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": 0
  },
  {
   "slug": "kedima",
@@ -1079,7 +1098,8 @@
     "height": 200
    }
   ],
-  "statement": []
+  "statement": [],
+  "coverIndex": 0
  },
  {
   "slug": "shiromani",
@@ -1118,7 +1138,8 @@
   ],
   "notes": [],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": 0
  },
  {
   "slug": "large-format",
@@ -1152,7 +1173,8 @@
   ],
   "notes": [],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": -1
  },
  {
   "slug": "flanelle-magazine",
@@ -1186,7 +1208,8 @@
   ],
   "notes": [],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": -1
  },
  {
   "slug": "enzomnia-magazine",
@@ -1205,7 +1228,8 @@
   ],
   "notes": [],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": 0
  },
  {
   "slug": "vanguard",
@@ -1234,7 +1258,8 @@
   ],
   "notes": [],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": 1
  },
  {
   "slug": "selin",
@@ -1258,7 +1283,8 @@
   ],
   "notes": [],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": 1
  },
  {
   "slug": "dice-kayek",
@@ -1342,7 +1368,8 @@
   ],
   "notes": [],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": 0
  },
  {
   "slug": "betweeninparis",
@@ -1376,7 +1403,8 @@
   ],
   "notes": [],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": 1
  },
  {
   "slug": "rafael-urquizar",
@@ -1440,7 +1468,8 @@
   ],
   "notes": [],
   "videos": [],
-  "statement": []
+  "statement": [],
+  "coverIndex": 7
  },
  {
   "slug": "shade",
@@ -1489,7 +1518,8 @@
   ],
   "statement": [],
   "notes": [],
-  "videos": []
+  "videos": [],
+  "coverIndex": 0
  },
  {
   "slug": "marine",
@@ -1553,7 +1583,8 @@
   ],
   "statement": [],
   "notes": [],
-  "videos": []
+  "videos": [],
+  "coverIndex": 0
  },
  {
   "slug": "sono",
@@ -1582,7 +1613,8 @@
   ],
   "statement": [],
   "notes": [],
-  "videos": []
+  "videos": [],
+  "coverIndex": 0
  },
  {
   "slug": "paper-dreams",
@@ -1606,7 +1638,8 @@
   ],
   "statement": [],
   "notes": [],
-  "videos": []
+  "videos": [],
+  "coverIndex": 0
  },
  {
   "slug": "i-wont-disappear",
@@ -1626,6 +1659,7 @@
     "width": 16,
     "height": 9
    }
-  ]
+  ],
+  "coverIndex": -1
  }
 ]

@@ -4,7 +4,7 @@ import styles from "../components/about.module.css";
 import { bio, email, instagram, linkedin } from "../content";
 import { inCollection, seriesHref } from "../work";
 
-export const metadata: Metadata = { title: "About | Tóna Fritsdóttir" };
+export const metadata: Metadata = { title: "About" };
 
 const portrait = { width: 1600, height: 2400 };
 
