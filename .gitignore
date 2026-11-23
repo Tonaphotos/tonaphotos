@@ -49,3 +49,7 @@ next-env.d.ts
 
 # reference codebases
 /brief/
+
+# content synced from Sanity at build time
+/app/content.generated.json
+/public/images/cms/

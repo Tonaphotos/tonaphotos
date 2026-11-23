@@ -2,7 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Hanken_Grotesk, Libre_Caslon_Display } from "next/font/google";
 import { Nav } from "./components/Nav";
 import { Smooth } from "./components/Smooth";
-import { site } from "./content";
+import { about, site } from "./content";
+import { inCollection, photoSrc } from "./work";
 import "./globals.css";
 
 const caslon = Libre_Caslon_Display({
@@ -16,8 +17,8 @@ const hanken = Hanken_Grotesk({
   subsets: ["latin", "latin-ext"],
 });
 
-const description =
-  "Tóna Fritsdóttir is a fashion and beauty editorial photographer whose work unfolds through a poetic and surreal visual language.";
+const description = about.lead.split(/(?<=\.)\s/)[0];
+const shareImage = (inCollection("portfolio")[0] ?? inCollection("featured")[0])?.cover ?? about.portrait;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site),
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     description,
     url: site,
     siteName: "Tona",
-    images: [{ url: "/images/work/enzomnia/01-1600.jpg", width: 1600, height: 2399 }],
+    images: [{ url: photoSrc(shareImage, 1600), width: shareImage.width, height: shareImage.height }],
     type: "website",
   },
   twitter: { card: "summary_large_image" },

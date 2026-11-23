@@ -1,9 +1,46 @@
-export const site = "https://www.tonaphotos.com";
-export const email = "tona@tonaphotos.com";
-export const instagram = "https://www.instagram.com/tona.photos/";
-export const linkedin = "https://www.linkedin.com/in/t%C3%B3na-fritsd%C3%B3ttir-8544572aa/";
+import generated from "./content.generated.json";
 
-export const bio = [
-  "is a fashion and beauty editorial photographer whose work unfolds through a poetic and surreal visual language. Rooted in the realm of dreams, her imagery drifts between reality and illusion, constructing narratives that evoke a sense of quiet escapism.",
-  "She is drawn to the emotional and symbolic potential of the dream state, using it as a space to question identity, culture, and the human need for belonging. Through soft distortions, layered compositions, and atmospheric tones, her work captures fleeting moments that feel both intimate and otherworldly. Each image becomes a visual poem, an invitation to step outside the tangible and into a world shaped by imagination, memory, and desire.",
-];
+export type Photo = { src: string; width: number; height: number };
+export type Segment = { text: string; href?: string };
+export type Video = { provider: "vimeo" | "youtube"; id: string; width: number; height: number };
+export type Collection = "portfolio" | "featured" | "commercial";
+export type Statement = { lang: string; paragraphs: string[] };
+
+export type Series = {
+  slug: string;
+  title: string;
+  cover: Photo;
+  coverIndex: number;
+  images: Photo[];
+  statement: Statement[];
+  notes: Segment[][];
+  videos: Video[];
+};
+
+export type Product = {
+  slug: string;
+  title: string;
+  price: number;
+  currency: "EUR";
+  format: string;
+  description: string[];
+  photos: Photo[];
+  maxQuantity: number;
+};
+
+type Content = {
+  settings: { email: string; instagram: string | null; linkedin: string | null; revolutUsername: string | null };
+  about: { lead: string; body: string[]; portrait: Photo };
+  collections: Record<Collection, string[]>;
+  series: Series[];
+  products: Product[];
+};
+
+const content = generated as Content;
+
+export const site = "https://www.tonaphotos.com";
+export const { email, instagram, linkedin, revolutUsername } = content.settings;
+export const about = content.about;
+export const collections = content.collections;
+export const work = content.series;
+export const products = content.products;

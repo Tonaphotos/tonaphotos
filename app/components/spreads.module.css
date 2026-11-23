@@ -71,8 +71,10 @@
 }
 
 .title {
+  margin: 0;
   font-family: var(--serif);
   font-size: 0.9375rem;
+  font-weight: 400;
   letter-spacing: 0.04em;
 }
 

@@ -2,17 +2,17 @@
 
 import { useState } from "react";
 import { email } from "../content";
-import { paypalAccount, priceLabel, type Product as Item } from "../store";
+import { priceLabel, revolutLink, revolutUsername, type Product as Item } from "../store";
 import { photoSrc, photoSrcSet } from "../work";
 import styles from "./product.module.css";
 
-type QuantityProps = { max: number; value: number; onChange: (value: number) => void; named?: boolean };
+type QuantityProps = { max: number; value: number; onChange: (value: number) => void };
 
-function Quantity({ max, value, onChange, named = false }: QuantityProps) {
+function Quantity({ max, value, onChange }: QuantityProps) {
   return (
     <label className={styles.quantity}>
       Quantity
-      <select name={named ? "quantity" : undefined} value={value} onChange={(event) => onChange(Number(event.target.value))}>
+      <select value={value} onChange={(event) => onChange(Number(event.target.value))}>
         {Array.from({ length: max }, (_, index) => (
           <option key={index + 1} value={index + 1}>
             {index + 1}
@@ -26,9 +26,19 @@ function Quantity({ max, value, onChange, named = false }: QuantityProps) {
 export function Product({ product }: { product: Item }) {
   const [shown, setShown] = useState(0);
   const [quantity, setQuantity] = useState(1);
+  const [paying, setPaying] = useState(false);
   const photo = product.photos[shown];
   const total = new Intl.NumberFormat("en-IE", { style: "currency", currency: product.currency }).format(product.price * quantity);
-  const orderMail = `mailto:${email}?subject=${encodeURIComponent(`Order: ${product.title} x${quantity}`)}`;
+  const subject = `Order: ${product.title} x${quantity}`;
+  const orderMail = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
+  const addressMail = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+    `Paid ${total} with Revolut.\n\nName:\nShipping address:\n`,
+  )}`;
+
+  function choose(value: number) {
+    setQuantity(value);
+    setPaying(false);
+  }
 
   return (
     <article className={styles.product}>
@@ -73,28 +83,27 @@ export function Product({ product }: { product: Item }) {
           ))}
         </div>
 
-        {paypalAccount ? (
-          <form className={styles.buy} action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-            <input type="hidden" name="cmd" value="_xclick" />
-            <input type="hidden" name="business" value={paypalAccount} />
-            <input type="hidden" name="item_name" value={`${product.title}, ${product.format}`} />
-            <input type="hidden" name="amount" value={product.price.toFixed(2)} />
-            <input type="hidden" name="currency_code" value={product.currency} />
-            <input type="hidden" name="no_note" value="1" />
-            <Quantity max={product.maxQuantity} value={quantity} onChange={setQuantity} named />
-            <button type="submit" className={styles.pay}>
+        <div className={styles.buy}>
+          <Quantity max={product.maxQuantity} value={quantity} onChange={choose} />
+          {revolutUsername ? (
+            <a
+              className={styles.pay}
+              href={revolutLink(revolutUsername, product, quantity)}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setPaying(true)}
+            >
               Buy · {total}
-            </button>
-          </form>
-        ) : (
-          <div className={styles.buy}>
-            <Quantity max={product.maxQuantity} value={quantity} onChange={setQuantity} />
+            </a>
+          ) : (
             <a className={styles.pay} href={orderMail}>
               Order by email · {total}
             </a>
-          </div>
-        )}
-        <p className={styles.shipping}>Shipping is calculated at checkout.</p>
+          )}
+        </div>
+        <p className={styles.shipping} aria-live="polite">
+          {paying && <a href={addressMail}>Send your shipping address</a>}
+        </p>
       </div>
     </article>
   );

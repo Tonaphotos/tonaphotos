@@ -129,9 +129,16 @@
 }
 
 .shipping {
+  min-height: 1.2em;
   margin: 0;
-  font-size: 0.6875rem;
-  letter-spacing: 0.04em;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.shipping a {
+  text-decoration-line: underline;
+  text-underline-offset: 0.3em;
 }
 
 @keyframes arrive {
