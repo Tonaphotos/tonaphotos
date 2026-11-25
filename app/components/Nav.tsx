@@ -39,7 +39,7 @@ export function Nav() {
     <header className={styles.nav} data-open={open ? "" : undefined}>
       <div className={styles.bar}>
         <Link href="/" className={styles.brand}>
-          Tona
+          <img src="/logo.svg" width={960} height={243} alt="Tona" />
         </Link>
         <nav className={styles.row} aria-label="Primary">
           {links}

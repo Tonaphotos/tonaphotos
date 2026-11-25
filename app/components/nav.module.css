@@ -2,7 +2,7 @@
   position: fixed;
   inset: 0 0 auto;
   z-index: 40;
-  background: var(--mist);
+  background: var(--paper);
 }
 
 .bar {
@@ -36,10 +36,15 @@
 }
 
 .nav .brand {
-  font-family: var(--serif);
-  font-size: 1.15rem;
-  letter-spacing: 0.08em;
-  line-height: 1;
+  display: block;
+  align-self: center;
+  text-decoration-line: none;
+}
+
+.brand img {
+  display: block;
+  width: auto;
+  height: 0.95rem;
 }
 
 .row {
@@ -77,8 +82,8 @@
     font-size: 0.75rem;
   }
 
-  .nav .brand {
-    font-size: 1.3rem;
+  .brand img {
+    height: 1.05rem;
   }
 
   .row {

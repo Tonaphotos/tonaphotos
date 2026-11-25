@@ -98,7 +98,7 @@
 .quantity select {
   padding: 0.6rem 0.4rem;
   border: 1px solid var(--ink);
-  background: var(--mist);
+  background: var(--paper);
   color: var(--ink);
   font: inherit;
   font-size: 0.8125rem;
@@ -110,7 +110,7 @@
   padding: 0.9rem 1rem;
   border: 0;
   background: var(--ink);
-  color: var(--mist);
+  color: var(--paper);
   font: inherit;
   font-size: 0.75rem;
   letter-spacing: 0.06em;
