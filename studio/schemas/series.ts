@@ -19,6 +19,13 @@ export const series = defineType({
       description: "Shown on the Portfolio, Featured and Commercial pages.",
       validation: (rule) => rule.required(),
     }),
+    defineField({
+      name: "fullBleed",
+      title: "Full bleed",
+      type: "boolean",
+      description: "Show the cover edge to edge, across the whole screen width.",
+      initialValue: false,
+    }),
     photosField("photos", "Photos", false),
     defineField({
       name: "statement",

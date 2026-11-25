@@ -3,7 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Viewer } from "../../components/Viewer";
 import styles from "../../components/page.module.css";
-import { findSeries, neighbours, photoSrc, photoSrcSet, seriesHref, work, type Video } from "../../work";
+import { absolute, imageUrl, JsonLd, pageMeta, personId, photographer, summary } from "../../seo";
+import { findSeries, neighbours, photoSrc, photoSrcSet, seriesHref, work, type Series, type Video } from "../../work";
 
 export const dynamicParams = false;
 
@@ -14,10 +15,13 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/work/[slug]">): Promise<Metadata> {
   const series = findSeries((await params).slug);
   if (!series) return {};
-  return {
-    title: series.title,
-    openGraph: { images: [{ url: photoSrc(series.cover, 1600), width: series.cover.width, height: series.cover.height }] },
-  };
+  return pageMeta({ title: series.title, description: seriesDescription(series), path: seriesHref(series) });
+}
+
+function seriesDescription(series: Series) {
+  const statement = series.statement.find((version) => version.lang.startsWith("en")) ?? series.statement[0];
+  const opening = statement?.paragraphs[0];
+  return summary(opening ?? `${series.title}, fashion and beauty editorial photography by ${photographer}.`);
 }
 
 function videoSource(video: Video) {
@@ -34,6 +38,16 @@ export default async function SeriesPage({ params }: PageProps<"/work/[slug]">) 
 
   return (
     <>
+      <JsonLd
+        data={{
+          "@type": "ImageGallery",
+          name: series.title,
+          description: seriesDescription(series),
+          url: absolute(seriesHref(series)),
+          creator: { "@id": personId },
+          image: [series.cover, ...series.images].map(imageUrl),
+        }}
+      />
       <main>
         {series.images.length > 0 ? (
           <Viewer title={series.title} photos={series.images} />

@@ -104,7 +104,7 @@ export function Viewer({ title, photos }: { title: string; photos: Photo[] }) {
                     sizes={spread.length > 1 ? "(min-width: 900px) 40vw, 90vw" : "(min-width: 900px) 70vw, 90vw"}
                     width={photos[photoIndex].width}
                     height={photos[photoIndex].height}
-                    alt={`${title}, photograph ${photoIndex + 1} of ${photos.length}`}
+                    alt={`${title} by Tóna Fritsdóttir, photograph ${photoIndex + 1} of ${photos.length}`}
                     loading={near ? "eager" : "lazy"}
                     fetchPriority={index === 0 ? "high" : "auto"}
                     decoding="async"

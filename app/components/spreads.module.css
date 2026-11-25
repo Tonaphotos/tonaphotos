@@ -30,6 +30,14 @@
   scroll-snap-stop: always;
 }
 
+.screen[data-bleed] {
+  height: auto;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-right: 0;
+  padding-left: 0;
+}
+
 .stage {
   container-type: size;
   display: grid;
@@ -43,6 +51,19 @@
   grid-template-columns: 1fr;
   width: min(100cqw, calc(100cqh * var(--r1)));
   animation: rise 1.1s 0.15s var(--ease) both;
+}
+
+.screen[data-bleed] .stage {
+  container-type: normal;
+}
+
+.screen[data-bleed] .spread {
+  width: 100%;
+}
+
+.screen[data-bleed] .caption {
+  padding-right: var(--margin);
+  padding-left: var(--margin);
 }
 
 .photo {
@@ -110,6 +131,11 @@
 @media (min-width: 900px), (orientation: landscape) and (min-width: 640px) {
   .screen {
     padding-top: 4.4rem;
+  }
+
+  .screen[data-hero] {
+    min-height: 0;
+    padding-top: 0;
   }
 
   .spread {

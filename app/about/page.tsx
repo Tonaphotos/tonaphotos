@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import styles from "../components/about.module.css";
 import { about, email, instagram, linkedin } from "../content";
+import { pageMeta, summary } from "../seo";
 import { inCollection, photoSrc, photoSrcSet, seriesHref } from "../work";
 
-export const metadata: Metadata = { title: "About" };
+export const metadata: Metadata = pageMeta({ title: "About", description: summary(about.lead), path: "/about" });
 
 export default function About() {
   const clients = inCollection("commercial");

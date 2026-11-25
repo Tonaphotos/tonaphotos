@@ -22,6 +22,7 @@ const query = `{
   "series": *[_type == "series" && defined(slug.current) && defined(cover.asset)]{
     title,
     "slug": slug.current,
+    "fullBleed": fullBleed == true,
     "cover": cover.asset->${assetFields},
     "photos": coalesce(photos[defined(asset)].asset->${assetFields}, []),
     "statement": coalesce(statement[]{ language, text }, []),
@@ -122,6 +123,7 @@ async function seriesOf(entry) {
     slug: entry.slug,
     title: entry.title,
     cover: photoOf(entry.cover),
+    fullBleed: entry.fullBleed,
     coverIndex: entry.photos.findIndex((photo) => photo._id === entry.cover._id),
     images,
     statement: entry.statement

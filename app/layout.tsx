@@ -2,8 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Hanken_Grotesk, Libre_Caslon_Display } from "next/font/google";
 import { Nav } from "./components/Nav";
 import { Smooth } from "./components/Smooth";
-import { about, site } from "./content";
-import { inCollection, photoSrc } from "./work";
+import { site } from "./content";
+import { brand, JsonLd, person, photographer, shareImage, siteDescription } from "./seo";
 import "./globals.css";
 
 const caslon = Libre_Caslon_Display({
@@ -17,22 +17,19 @@ const hanken = Hanken_Grotesk({
   subsets: ["latin", "latin-ext"],
 });
 
-const description = about.lead.split(/(?<=\.)\s/)[0];
-const shareImage = (inCollection("portfolio")[0] ?? inCollection("featured")[0])?.cover ?? about.portrait;
+const homeTitle = `${brand} | Fashion and beauty photography by ${photographer}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site),
-  title: { default: "Tona", template: "%s | Tona" },
-  description,
-  openGraph: {
-    title: "Tona",
-    description,
-    url: site,
-    siteName: "Tona",
-    images: [{ url: photoSrc(shareImage, 1600), width: shareImage.width, height: shareImage.height }],
-    type: "website",
-  },
-  twitter: { card: "summary_large_image" },
+  title: { default: homeTitle, template: `%s | ${brand}` },
+  description: siteDescription,
+  applicationName: brand,
+  authors: [{ name: photographer, url: site }],
+  creator: photographer,
+  keywords: [photographer, "fashion photographer", "beauty photographer", "editorial photography", "surreal photography"],
+  openGraph: { title: homeTitle, description: siteDescription, url: "/", siteName: brand, locale: "en_US", type: "website", images: [shareImage] },
+  twitter: { card: "summary_large_image", images: [shareImage.url] },
+  formatDetection: { email: false, telephone: false, address: false },
 };
 
 export const viewport: Viewport = {
@@ -44,6 +41,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" className={`${caslon.variable} ${hanken.variable}`}>
       <body>
         <Smooth />
+        <JsonLd
+          data={{
+            "@graph": [
+              { "@type": "WebSite", "@id": `${site}/#website`, name: brand, url: site, publisher: { "@id": person["@id"] } },
+              person,
+            ],
+          }}
+        />
         <Nav />
         {children}
       </body>

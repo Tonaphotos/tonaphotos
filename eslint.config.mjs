@@ -16,7 +16,7 @@ const eslintConfig = defineConfig([
   ...nextTs,
   staticExportServesPrebuiltSrcsets,
   mountEffectRunsOnceByDesign,
-  globalIgnores([".next/**", "out/**", "build/**", "next-env.d.ts", "studio/**"]),
+  globalIgnores([".next/**", "out/**", "build/**", "next-env.d.ts", "studio/**", ".wrangler/**"]),
 ]);
 
 export default eslintConfig;

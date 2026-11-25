@@ -3,6 +3,11 @@
   inset: 0 0 auto;
   z-index: 40;
   background: var(--paper);
+  transition: background-color 0.4s var(--ease);
+}
+
+:root:has(main [data-hero]):not([data-past-hero]) .nav:not([data-open]) {
+  background-color: transparent;
 }
 
 .bar {

@@ -10,6 +10,7 @@ export type Series = {
   slug: string;
   title: string;
   cover: Photo;
+  fullBleed: boolean;
   coverIndex: number;
   images: Photo[];
   statement: Statement[];
